@@ -4,33 +4,36 @@ package com.nowcoder.model;
  * Created by nowcoder on 2016/6/26.
  */
 public class User {
-    private int Userid;
-    private String UserName;
-    private String PassWord;
+    private int id;
+    private String name;
+    private String password;
     private String salt;
+    private String headUrl;
 
-    public int getId() {
-        return Userid;
+    public User() {
+
+    }
+    public User(String name) {
+        this.name = name;
+        this.password = "";
+        this.salt = "";
+        this.headUrl = "";
     }
 
-    public void setId(int id) {
-        this.Userid = id;
+    public String getName() {
+        return name;
     }
 
-    public String getUserName() {
-        return UserName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setUserName(String userName) {
-        UserName = userName;
+    public String getPassword() {
+        return password;
     }
 
-    public String getPassWord() {
-        return PassWord;
-    }
-
-    public void setPassWord(String passWord) {
-        PassWord = passWord;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSalt() {
@@ -41,14 +44,19 @@ public class User {
         this.salt = salt;
     }
 
-    public User() {
-
-    }
-    public User(String name) {
-        this.UserName = name;
-        this.PassWord = "";
-        this.salt="";
+    public String getHeadUrl() {
+        return headUrl;
     }
 
+    public void setHeadUrl(String headUrl) {
+        this.headUrl = headUrl;
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

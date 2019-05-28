@@ -21,11 +21,6 @@
                             '<label><input type="checkbox" class="js-rember"> 记住登录</label>',
                         '</div>',
                     '</div>',
-                    '<div class="form-group about-pwd">',
-                        '<div class="keep-pwd">',
-                            '<label><input type="checkbox" class="js-admin"> 管理员登录</label>',
-                        '</div>',
-                    '</div>',
                     '<div class="form-group">',
                         '<div class="col-input-login">',
                             '<a class="btn btn-info js-login" href="javascript:void(0);">登陆</a>',
@@ -61,8 +56,7 @@
                     data: {
                         username: oData.email,
                         password: oData.pwd,
-                        rember: oData.rember ? 1 : 0,
-                        admin:oData.admin ? 1:0
+                        rember: oData.rember ? 1 : 0
                     }
                 }).done(function (oResult) {
                     if (oResult.code === 0) {
@@ -92,19 +86,15 @@
                     dataType: 'json',
                     data: {
                         username: oData.email,
-                        password: oData.pwd,
-                        rember: oData.rember ? 1 : 0,
-                        admin:oData.admin ? 1:0
+                        password: oData.pwd
                     }
                 }).done(function (oResult) {
                     if (oResult.code === 0) {
 //                        window.location.reload();
                         that.emit('register');
                     } else {
-
                         oResult.msgname && that.iptError(that.emailIpt, oResult.msgname);
                         oResult.msgpwd && that.iptError(that.pwdIpt, oResult.msgpwd);
-
                     }
                 }).fail(function () {
                     alert('出现错误，请重试');
@@ -151,19 +141,16 @@
         var oEmailIpt = that.emailIpt.find('input');
         var oPwdIpt = that.pwdIpt.find('input');
         var oRemberChk = oEl.find('.js-rember');
-        var oAdminChk = oEl.find('.js-admin');
         if (arguments.length === 0) {
             return {
                 email: $.trim(oEmailIpt.val()),
                 pwd: $.trim(oPwdIpt.val()),
-                rember: oRemberChk.prop('checked'),
-                admin: oAdminChk.prop('checked')
+                rember: oRemberChk.prop('checked')
             };
         } else {
             oEmailIpt.val($.trim(oData.email));
             oPwdIpt.val($.trim(oData.pwd));
             oRemberChk.prop('checked', !!oData.rember);
-            oAdminrChk.prop('checked', !!oData.admin);
         }
     }
 

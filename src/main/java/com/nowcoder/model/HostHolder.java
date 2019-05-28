@@ -20,18 +20,4 @@ public class HostHolder {
     public void clear() {
         users.remove();
     }
-
-    private static ThreadLocal<Admin> admins = new ThreadLocal<Admin>();
-
-    public Admin getAdmin() {
-        return admins.get();
-    }
-
-    public void setAdmin(Admin admin) {
-        admins.set(admin);
-    }
-
-    public void clearAdmin() {
-        admins.remove();
-    }
 }
